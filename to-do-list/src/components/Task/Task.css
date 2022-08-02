@@ -1,0 +1,21 @@
+.task-container{
+    border: solid 2px black;
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    background-color: grey;
+}
+
+
+.task-container .task-edit, .task-delete, .task-checkBox{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.task-tools{
+    display: flex;
+    margin-left: auto;
+}
