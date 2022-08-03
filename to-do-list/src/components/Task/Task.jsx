@@ -36,6 +36,7 @@ export default function Task({task, dispatch}) {
                     placeholder={task.title}
                     onChange={(e)=>setTitle(e.target.value)}
                     onKeyUp={onKeyUp}
+                    autoFocus={true}
                 />:
                 <div className='task-title'>{task.title}</div>
             }

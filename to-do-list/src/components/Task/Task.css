@@ -1,11 +1,8 @@
-.task-container{
-    border: solid 2px black;
+.task-container{ 
     display: flex;
     flex-direction: row;
     padding: 10px;
-    background-color: grey;
 }
-
 
 .task-container .task-edit, .task-delete, .task-checkBox{
     background-color: transparent;
@@ -18,4 +15,12 @@
 .task-tools{
     display: flex;
     margin-left: auto;
+}
+
+.task-Container input{
+    background-color: #e5e5e5;
+    border: none;
+}
+.task-Container input:focus{
+    outline: none;
 }

@@ -2,7 +2,7 @@ import {React, useReducer, useState} from 'react'
 import AddTask from '../AddTask/AddTask';
 import {ImCheckboxUnchecked, ImCheckboxChecked} from 'react-icons/im';
 import List from './List/List';
-
+import "./TaskList.css"
 
 export const ACTIONS ={
     ADD_TASK: 'add-task',
@@ -89,12 +89,8 @@ export default function TaskList() {
     const [counter, setCounter] = useState(0);
     const [tasks, dispatch] = useReducer(reducer,[]);
 
-
-
-
-
     return (
-    <div>
+    <div className='task-list-app-container'>
         <AddTask dispatch={dispatch}/>
         <div 
             className='task-list-sort'
@@ -114,11 +110,11 @@ export default function TaskList() {
             />
         </div>
         <div 
-            className='task-checkBox' 
+            className='task-list-checkBox' 
             onClick={ () => {
                 setHidden(!hidden)
             }}>
-                {hidden ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
+                {hidden ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />} Hide Completed
         </div>
     </div>
     )
