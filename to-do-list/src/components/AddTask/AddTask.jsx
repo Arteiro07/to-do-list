@@ -1,11 +1,11 @@
 import {React, useState} from 'react'
-import { ACTIONS } from '../TaskList/TaskList'
+import { ACTIONS, useDispatch } from '../../hooks/TasksContext'
 import "./AddTask.css"
 import { inValidTask } from '../../Regex';
 
 
-export default function AddTask( {dispatch} ) {
-    
+export default function AddTask() {
+    const dispatch = useDispatch();
     const [title, setTitle] = useState("");
     
     function onKeyUp(e) {

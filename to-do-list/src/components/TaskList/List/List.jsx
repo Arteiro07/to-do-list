@@ -1,8 +1,11 @@
 import React from 'react'
 import Task from '../../Task/Task';
 import "./List.css"
+import { useTasks } from '../../../hooks/TasksContext';
 
-export default function List({tasks, hidden, dispatch}) {
+export default function List( {hidden}) {
+    const tasks = useTasks();
+    
     if(hidden){
         
        
@@ -13,7 +16,6 @@ export default function List({tasks, hidden, dispatch}) {
                         <Task 
                                 key={task.id}
                                 task={task} 
-                                dispatch={dispatch}
                             />
                         <div className='list-line'></div>    
                     </>  
@@ -29,7 +31,6 @@ export default function List({tasks, hidden, dispatch}) {
                         <Task 
                             key={task.id}
                             task={task} 
-                            dispatch={dispatch}
                         /> 
                         <div className='list-line'></div>   
                     </div>
