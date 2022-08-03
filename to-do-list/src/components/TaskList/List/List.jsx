@@ -3,9 +3,11 @@ import Task from '../../Task/Task';
 import "./List.css"
 import { useTasks } from '../../../hooks/TasksContext';
 
+
 export default function List( {hidden}) {
     const tasks = useTasks();
     
+    //Show hidden tasks
     if(hidden){       
         return (
             <>
@@ -23,6 +25,7 @@ export default function List( {hidden}) {
             </>
         )
     }
+    //show all tasks
     else{
         return (
             <>

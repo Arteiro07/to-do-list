@@ -5,15 +5,17 @@ import List from './List/List';
 import "./TaskList.css"
 import { ACTIONS, useDispatch, useTasks } from '../../hooks/TasksContext';
 
+
 export default function TaskList() {
 
+    //hidden defines if the completed tasks are to be shown on not its value is also stored locally
     const [hidden, setHidden] = useState(()=>{
         const localData = localStorage.getItem('hidden');
         return localData ? JSON.parse(localData) : false;
     });
-    const [counter, setCounter] = useState(0);
-    const tasks = useTasks();
-    const dispatch = useDispatch();
+    const [counter, setCounter] = useState(0);//counter keeps track of the sort state 0-sort by time, 1-sort alphabetically descending, 2-sort alphabetically ascending
+    const tasks = useTasks();//list of all the tasks from the context hook
+    const dispatch = useDispatch();//functions to interact with the tasks
 
     useEffect(()=>{
         localStorage.setItem('hidden', JSON.stringify(hidden))

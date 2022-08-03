@@ -14,8 +14,13 @@ export default function Task({task}) {
     const dispatch = useDispatch();
     
     function onKeyUp(e) {
+        //press enter to submit new title
         if (e.key === 'Enter' && !inValidTask.test(title)  ) {
             dispatch({type: ACTIONS.EDIT_TASK, payload:{id: task.id, title:title }})
+            setEdit(false);
+        }
+        //press escape to leave edit mode
+        else if (e.key ==='Escape'){
             setEdit(false);
         }
         else if (inValidTask.test(title))setTitle("");
@@ -32,15 +37,15 @@ export default function Task({task}) {
                     {task.checked ? <ImCheckboxChecked /> : <ImCheckboxUnchecked />}
             </div>
             {
-                edit?
-                <input 
+                edit
+                ?<input 
                     value={title}
                     placeholder={task.title}
                     onChange={(e)=>setTitle(e.target.value)}
                     onKeyUp={onKeyUp}
                     autoFocus={true}
-                />:
-                <div className='task-title'>{task.title}</div>
+                />
+                :<div className={'task-title-'+task.checked.toString()}>{task.title}</div>
             }
             <div className='task-tools'>
                 <div 

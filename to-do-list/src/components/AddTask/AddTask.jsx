@@ -8,6 +8,7 @@ export default function AddTask() {
     const dispatch = useDispatch();
     const [title, setTitle] = useState("");
     
+    //press enter to crete new task or click the create button
     function onKeyUp(e) {
         if (e.key === 'Enter' && !inValidTask.test(title) ) {
           onCreate();

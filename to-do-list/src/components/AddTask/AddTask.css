@@ -14,6 +14,7 @@
     width: 70%;
     background-color: #e5e5e5;
     margin: 5px;
+    padding: 2px 4px;
 }
 .AddTask-Container input:focus{
     outline: none;
@@ -25,9 +26,13 @@
     width: 20%;
     border-radius: 5px;
     border: none;
-    background-color: #e5e5e5;
+    cursor: pointer;
+    box-shadow: 0 2px #999;
 }
-
 .AddTask-Create:hover{
     background-color: rgba(220, 220, 220, 1);
+}
+.AddTask-Create:active{
+    box-shadow: 0 1px #666;
+    transform: translateY(2px);
 }
