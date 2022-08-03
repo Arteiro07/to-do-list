@@ -1,4 +1,4 @@
-import React, { useContext, useReducer } from 'react'
+import React, { useContext,useEffect , useReducer } from 'react'
 
 const TasksContext = React.createContext();
 const DispatchContext = React.createContext();
@@ -9,7 +9,6 @@ export function useTasks(){
 export function useDispatch(){
   return useContext(DispatchContext)
 }
-
 
 export const ACTIONS ={
   ADD_TASK: 'add-task',
@@ -91,7 +90,14 @@ function reducer (tasks, {type, payload}) {
 }
 
 export function TasksProvider({ children }) {
-  const [tasks, dispatch] = useReducer(reducer,[]);
+  const [tasks, dispatch] = useReducer(reducer, [], ()=>{
+    const localData = localStorage.getItem('tasks');
+    return localData ? JSON.parse(localData) : [];
+  }); 
+
+  useEffect(()=>{
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  },[tasks]);
 
   return (
     <TasksContext.Provider value={tasks}>

@@ -1,4 +1,4 @@
-import {React, useState} from 'react'
+import {React, useEffect, useState} from 'react'
 import AddTask from '../AddTask/AddTask';
 import {ImCheckboxUnchecked, ImCheckboxChecked} from 'react-icons/im';
 import List from './List/List';
@@ -7,11 +7,17 @@ import { ACTIONS, useDispatch, useTasks } from '../../hooks/TasksContext';
 
 export default function TaskList() {
 
-    const [hidden, setHidden] = useState(false);
+    const [hidden, setHidden] = useState(()=>{
+        const localData = localStorage.getItem('hidden');
+        return localData ? JSON.parse(localData) : false;
+    });
     const [counter, setCounter] = useState(0);
     const tasks = useTasks();
     const dispatch = useDispatch();
 
+    useEffect(()=>{
+        localStorage.setItem('hidden', JSON.stringify(hidden))
+    },[hidden])
     return (
     <div className='task-list-app-container'>
         <AddTask dispatch={dispatch}/>

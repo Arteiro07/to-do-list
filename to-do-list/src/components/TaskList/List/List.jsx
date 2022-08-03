@@ -6,19 +6,19 @@ import { useTasks } from '../../../hooks/TasksContext';
 export default function List( {hidden}) {
     const tasks = useTasks();
     
-    if(hidden){
-        
-       
+    if(hidden){       
         return (
             <>
                 { tasks.filter(task => task.checked === !true).map(task => (
-                    <>
+                    <div key={task.id}>
                         <Task 
-                                key={task.id}
                                 task={task} 
                             />
-                        <div className='list-line'></div>    
-                    </>  
+                        <div 
+                            className='list-line'
+                        >
+                        </div>    
+                    </div>  
                 ))}
             </>
         )
@@ -27,16 +27,17 @@ export default function List( {hidden}) {
         return (
             <>
                 {tasks.map(task => (
-                    <div className='list-element'>    
+                    <div key={task.id}>    
                         <Task 
-                            key={task.id}
                             task={task} 
                         /> 
-                        <div className='list-line'></div>   
+                        <div 
+                            className='list-line'
+                        >
+                        </div>   
                     </div>
                 ))}
             </>
         )
-
     }
 }
