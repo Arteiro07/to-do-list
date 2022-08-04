@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+import Auth from "./components/Auth/Auth";
 import TaskList from './components/TaskList/TaskList';
 import { TasksProvider } from './hooks/TasksContext';
 
@@ -7,6 +8,7 @@ import { TasksProvider } from './hooks/TasksContext';
 function App() {
   return (
     <div className="App">
+      <Auth/>
       <TasksProvider>
         <TaskList/>
       </TasksProvider>
