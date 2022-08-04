@@ -1,0 +1,1 @@
+export const inValidTask = new RegExp(/^\s*$/g); //Protection against empty tasks and large white spaces in the begining

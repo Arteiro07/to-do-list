@@ -1,0 +1,38 @@
+.task-container{ 
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    font-size: 1.25rem;
+}
+
+.task-container .task-edit, .task-delete, .task-checkBox{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.task-edit:hover, .task-delete:hover, .task-checkBox:hover{
+    color: #fca311;
+}
+
+
+.task-tools{
+    display: flex;
+    margin-left: auto;
+}
+
+.task-container input{
+    background-color: #e5e5e5;
+    border: none;
+    padding: 1px 2px;
+    border-radius: 3px;
+}
+.task-container input:focus{
+    outline: none;
+}
+
+
+.task-title-true{
+    text-decoration: line-through;
+}
